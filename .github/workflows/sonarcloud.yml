@@ -1,0 +1,24 @@
+name: Análisis con SonarCloud
+
+on:
+  push:
+    branches:
+      - main  
+  pull_request:
+    branches:
+      - main  
+
+jobs:
+  sonar:
+    name: Analizar con SonarCloud
+    runs-on: ubuntu-latest  
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Ejecutar análisis en SonarCloud
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          echo "Aquí va el comando para ejecutar SonarCloud"
