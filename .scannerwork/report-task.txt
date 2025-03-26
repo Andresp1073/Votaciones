@@ -1,0 +1,7 @@
+organization=andresp1073
+projectKey=Andresp1073_Votaciones
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.61049
+dashboardUrl=https://sonarcloud.io/dashboard?id=Andresp1073_Votaciones
+ceTaskId=AZXPn5LdsYAV-ZQRVf25
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZXPn5LdsYAV-ZQRVf25
