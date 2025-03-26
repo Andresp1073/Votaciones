@@ -3,10 +3,10 @@ name: Análisis con SonarCloud
 on:
   push:
     branches:
-      - main  
+      - master  
   pull_request:
     branches:
-      - main  
+      - master  
 
 jobs:
   sonar:
@@ -17,8 +17,19 @@ jobs:
       - name: Clonar el repositorio
         uses: actions/checkout@v4
 
+      - name: Configurar Java
+        uses: actions/setup-java@v11
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
       - name: Ejecutar análisis en SonarCloud
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          echo "Aquí va el comando para ejecutar SonarCloud"
+          mvn verify sonar:sonar \
+            -Dsonar.projectKey=TU_PROYECTO \
+            -Dsonar.organization=TU_ORGANIZACION \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
